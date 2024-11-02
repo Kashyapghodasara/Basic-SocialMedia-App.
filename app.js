@@ -128,7 +128,7 @@ app.post("/post", isLoggedIn , async (req, res) => {
 app.post("/register", async (req, res) => {
     let {username, name, email, age, password} = req.body;
 
-    let user = await userModel.findOne({email});
+    let user = await userModel.findOne({email, password, username});
     if(user) return res.status(500).send("User Already Registered");
 
     bcrypt.genSalt(10, async (err, salt) => {
