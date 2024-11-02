@@ -1,6 +1,14 @@
 # Basic-SocialMedia-App.
 This project is a part of my Backend Learning. 
-Where you can create your Account and Upload your profile pic. with create a multiple Post also available featured called Like, Edit and Delete.
+This app allows users to create multiple accounts, upload a profile picture, and manage posts with various features. 💻
+
+1) Account Creation: Sign up to create a new account, set up your profile, and upload a profile picture.
+2) Login and Logout: Securely log in to access your account and log out when needed.
+3) Post Management: Create multiple posts, each with the ability to:
+ - Like: Show appreciation for posts.
+ - Edit: Make changes to your posts as needed.
+ - Delete: Remove posts you no longer want.
+Each user can manage their own account and posts, ensuring a personalized experience.
 
 -------------------------------------------------------------------------------------
 
