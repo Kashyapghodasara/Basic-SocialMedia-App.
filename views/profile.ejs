@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body  class="bg-zinc-800">
+        <div class="w-full flex justify-end">
+            <a href="/logout" class="px-3 py-2 mr-10 mt-3 text-white inline-block bg-red-500 rounded-md">Logout</a>
+        </div>
+
+        <div class="flex gap-4">
+            <h1 class="text-[40px] text-zinc-200 mt-3 m-10">Hello, <%= user.name %></h1>
+            <div class="bg-zinc-600 h-36 w-36 rounded-md">
+                <img class="w-full h-full object-cover rounded-lg" src="./images/uploads/<%= user.profilepic %>" alt="Profile image">
+            </div>
+        </div>
+
+        <h3 class="ml-10 text-zinc-500 mt-[-76px] mb-16">This is your Profile Page...✨</h3>
+
+        <form action="/post" method="post" class="block">
+            <textarea placeholder="Create Your Post..." required name="content" class="resize-none bg-transparent bg-zinc-700 ml-10 mt-5 p-2 rounded-md border-[1px] w-1/2 h-20 text-white"></textarea>
+            <div class="flex ml-10 mt-2 gap-4">
+                <input type="submit" value="Create Post" class="p-2 bg-blue-600 w-36 font-semibold text-md text-white rounded-md">
+                <a href="/" class="p-2 bg-blue-600 w-36 font-semibold text-md text-white rounded-md text-center">Home</a>
+                <a href="/profile/upload" class="p-2 bg-blue-600 w-36 font-semibold text-md text-white rounded-md text-center">Profile Picture 😄</a>
+            </div>
+        </form>
+
+        <div class="Posts">
+            <h3 class="ml-10 text-zinc-200 mt-10 font-semibold tracking-wider text-lg">Your Posts</h3>
+            
+                <% user.posts.reverse().forEach((post) => { %>
+                    <div class="post resize-none bg-transparent bg-zinc-700 ml-10 mt-5 p-2 rounded-md border-[1px] w-1/2 h-auto text-white">
+                        <h3 class="mb-2 font-semibold text-blue-300">@<%= user.username %></h3>
+                        <p class="mb-0"><%= post.content %></p>
+                        <small><%= post.likes.length %> likes</small>
+                        <!-- ref: "post" -> find the content inside post.js -->
+                        <div class="flex items-center justify-between w-full mt-5">
+                            <div class="flex gap-8">
+                                <a href="/like/<%= post._id %>" class="text-red-500">Like</a>
+                                <a href="/edit/<%= post._id %>" class="text-gray-400">Edit</a>
+                            </div>
+                            <a href="/delete/<%= post._id %>" class="text-black font-semibold">Delete</a>
+                        </div>
+                    </div>
+                <% }) %>
+                       
+        </div>
+</body>
+</html>
