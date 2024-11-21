@@ -1,4 +1,4 @@
-# Basic-SocialMedia-App.
+# Basic-SocialMedia-App
 This project is a part of my Backend Learning. 
 This app allows users to create multiple accounts, upload a profile picture, and manage posts with various features. 💻
 
